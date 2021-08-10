@@ -1,0 +1,18 @@
+version: '3'
+services:
+        web:
+                build: ./python/.
+#                depends_on:
+#                      - redis
+                ports:
+                      - 5000:5000
+#        redis:
+#                image: 'redis'
+        nginx-server:
+                build: ./nginx/.
+                ports:
+                        - 8080:80
+        proxy:
+                build: .
+                ports:
+                      - 80:80
